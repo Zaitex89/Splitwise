@@ -1,6 +1,6 @@
 # Splitwise
 
-## Preview
+## Alex Brandt
 
 ![Splitwise](assets/splitwise_landing_page.png)
 ![Splitwise](assets/splitwise_ex1.png)
