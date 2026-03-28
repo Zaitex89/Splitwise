@@ -129,7 +129,7 @@ The app will be running at `http://localhost:5173`.
 1. Go to **Manage members** and create users
 2. Create a group and select members
 3. Click a group to add expenses and view balances
-4. The **Att swisha** section shows exactly who owes whom
+4. The **Att betala** section shows exactly who owes whom
 
 ---
 
