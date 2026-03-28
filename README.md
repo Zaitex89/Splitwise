@@ -81,7 +81,7 @@ pip install fastapi uvicorn sqlalchemy psycopg2-binary python-dotenv pydantic[em
 Create a file called `.env` in the `backend/` folder:
 
 ```env
-DATABASE_URL=postgresql://username:password@localhost:5432/splitwise
+DATABASE_URL=postgresql://username:password@localhost/splitwise
 ```
 
 Replace `username`, `password`, and `splitwise` with your PostgreSQL credentials and database name.
