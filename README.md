@@ -1,5 +1,11 @@
 # Splitwise
 
+## Preview
+
+![Splitwise](assets/splitwise_landing_page.png)
+![Splitwise](assets/splitwise_ex1.png)
+
+
 A fullstack expense splitting app built with FastAPI and React.
 
 ---
