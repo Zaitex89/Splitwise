@@ -87,7 +87,7 @@ pip install fastapi uvicorn sqlalchemy psycopg2-binary python-dotenv pydantic[em
 Create a file called `.env` in the `backend/` folder:
 
 ```env
-DATABASE_URL=postgresql://username:password@localhost:5432/splitwise
+DATABASE_URL=postgresql://username:password@localhost/splitwise
 ```
 
 Replace `username`, `password`, and `splitwise` with your PostgreSQL credentials and database name.
@@ -135,7 +135,7 @@ The app will be running at `http://localhost:5173`.
 1. Go to **Manage members** and create users
 2. Create a group and select members
 3. Click a group to add expenses and view balances
-4. The **Att swisha** section shows exactly who owes whom
+4. The **Att betala** section shows exactly who owes whom
 
 ---
 
