@@ -7,7 +7,7 @@
 ![Splitwise](assets/splitwise_ex2.png)
 
 
-A fullstack expense splitting app built with FastAPI and React.
+A fullstack expense splitting app built with FastAPI, React and Tailwind.
 
 ---
 
