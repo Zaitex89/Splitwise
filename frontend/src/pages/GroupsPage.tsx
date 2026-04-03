@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { getGroups, createGroup } from "../api/groups"
 import { getUsers } from "../api/users"
 import type { Group, User } from "../types/index"
+import { useLang } from "../context/LanguageContext"
 
 export default function GroupsPage() {
     const [groups, setGroups] = useState<Group[]>([])
@@ -11,6 +12,7 @@ export default function GroupsPage() {
     const [name, setName] = useState("")
     const [selectedIds, setSelectedIds] = useState<number[]>([])
     const navigate = useNavigate()
+    const { t, lang, setLang } = useLang()
 
     useEffect(() => {
         getGroups().then(setGroups).catch(() => setGroups([]))
@@ -67,9 +69,14 @@ export default function GroupsPage() {
             
 
             <div className="relative z-10 max-w-2xl mx-auto px-6 py-20">
-                <p className="text-xs tracking-widest text-white/30 uppercase mb-3">Dela kostnader</p>
-                <h1 className="text-5xl font-bold tracking-tight mb-16">Splitwise</h1>
-
+                <p className="text-xs tracking-widest text-white/30 uppercase mb-3">{t.subtitle}</p>
+                <h1 className="text-5xl font-bold tracking-tight mb-16">{t.appName}</h1>
+                <button
+                    onClick={() => setLang(lang === "en" ? "sv" : "en")}
+                    className="absolute top-5 right-2 text-white/30 text-sm border border-white/10 px-4 py-2 rounded-xl hover:text-white/60 hover:border-white/20 transition"
+                >
+                    {lang === "en" ? "🇸🇪 Svenska" : "🇺🇸 English"}
+                </button>
                 <div className="flex flex-col gap-2 mb-12">
                     {groups.map(group => (
                         <div
@@ -79,7 +86,7 @@ export default function GroupsPage() {
                         >
                             <div className="flex-1 min-w-0">
                                 <p className="font-semibold text-[15px]">{group.name}</p>
-                                <p className="text-[13px] text-white/40 mt-1">{group.members.length} medlemmar</p>
+                                <p className="text-[13px] text-white/40 mt-1">{group.members.length} {t.members}</p>
                             </div>
                             <span className="text-white/20 text-lg">→</span>
                         </div>
@@ -89,19 +96,19 @@ export default function GroupsPage() {
                     onClick={() => navigate("/users")}
                     className="text-white/50 text-sm px-5 py-2.5 rounded-xl border border-white/10 hover:border-white/20 hover:text-white/60 transition"
                 >
-                    Hantera medlemmar
+                    {t.manageMembers}
                 </button>
 
                 {showForm ? (
                     <div className="border border-white/10 rounded-2xl p-7 bg-white/[0.02]">
-                        <p className="font-semibold text-base mb-4">Ny grupp</p>
+                        <p className="font-semibold text-base mb-4">{t.newGroup}</p>
                         <input
                             value={name}
                             onChange={e => setName(e.target.value)}
                             placeholder="Gruppnamn"
                             className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/25 outline-none mb-5"
                         />
-                        <p className="text-[11px] uppercase tracking-widest text-white/35 mb-3">Välj medlemmar</p>
+                        <p className="text-[11px] uppercase tracking-widest text-white/35 mb-3">{t.selectMembers}</p>
                         <div className="flex flex-wrap gap-2 mb-6">
                             {users.map(user => (
                                 <button
@@ -122,13 +129,13 @@ export default function GroupsPage() {
                                 onClick={handleCreate}
                                 className="bg-white text-black font-semibold text-sm px-5 py-2.5 rounded-xl hover:bg-white/90 transition"
                             >
-                                Skapa
+                                {t.create}
                             </button>
                             <button
                                 onClick={() => setShowForm(false)}
                                 className="text-white/40 text-sm px-5 py-2.5 rounded-xl border border-white/10 hover:border-white/20 transition"
                             >
-                                Avbryt
+                                {t.cancel}
                             </button>
                         </div>
                     </div>
@@ -138,7 +145,7 @@ export default function GroupsPage() {
                         onClick={() => setShowForm(true)}
                         className="text-white/50 text-sm px-5 py-2.5 rounded-xl border border-white/10 hover:border-white/20 hover:text-white/60 transition"
                     >
-                        + Ny grupp
+                        {t.newGroup}
                     </button>
                 )}
             </div>
