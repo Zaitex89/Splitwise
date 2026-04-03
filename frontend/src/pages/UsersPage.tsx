@@ -2,12 +2,14 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getUsers, createUser, deleteUser } from "../api/users"
 import type { User } from "../types/index"
+import { useLang } from "../context/LanguageContext"
 
 export default function UsersPage() {
     const [users, setUsers] = useState<User[]>([])
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const navigate = useNavigate()
+    const { t } = useLang()
 
     useEffect(() => {
         getUsers().then(setUsers)
@@ -48,10 +50,10 @@ export default function UsersPage() {
                     onClick={() => navigate("/")}
                     className="text-white/30 text-sm hover:text-white/60 transition mb-10 block"
                 >
-                    ← Tillbaka
+                    {t.back}
                 </button>
 
-                <h1 className="text-5xl font-bold tracking-tight mb-16">Medlemmar</h1>
+                <h1 className="text-5xl font-bold tracking-tight mb-16">{t.members_page}</h1>
 
                 <div className="flex flex-col gap-2 mb-12">
                     {users.map(user => (
@@ -64,14 +66,14 @@ export default function UsersPage() {
                                 onClick={() => handleDelete(user.id)}
                                 className="text-white/20 hover:text-red-400 text-sm transition ml-4"
                             >
-                                Ta bort
+                                {t.remove}
                             </button>
                         </div>
                     ))}
                 </div>
 
                 <div className="border border-white/10 rounded-2xl p-7 bg-white/[0.02]">
-                    <p className="font-semibold text-base mb-4">Ny medlem</p>
+                    <p className="font-semibold text-base mb-4">{t.newMember}</p>
                     <input
                         value={name}
                         onChange={e => setName(e.target.value)}
@@ -88,7 +90,7 @@ export default function UsersPage() {
                         onClick={handleCreate}
                         className="bg-white text-black font-semibold text-sm px-5 py-2.5 rounded-xl hover:bg-white/90 transition"
                     >
-                        Skapa
+                        {t.create}
                     </button>
                 </div>
             </div>
