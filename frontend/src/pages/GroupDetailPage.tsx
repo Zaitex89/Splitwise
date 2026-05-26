@@ -101,26 +101,8 @@ export default function GroupDetailPage() {
 
     return (
         <div className="min-h-screen bg-[#0a0a0a] text-white relative overflow-hidden">
-            <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-                <div style={{
-                    position: "absolute", top: "-20%", left: "-10%",
-                    width: "500px", height: "500px", borderRadius: "50%",
-                    background: "radial-gradient(circle, rgba(120,60,255,0.25) 0%, transparent 70%)",
-                    filter: "blur(60px)"
-                }} />
-                <div style={{
-                    position: "absolute", bottom: "-20%", right: "-10%",
-                    width: "500px", height: "500px", borderRadius: "50%",
-                    background: "radial-gradient(circle, rgba(30,100,255,0.2) 0%, transparent 70%)",
-                    filter: "blur(60px)"
-                }} />
-                <div style={{
-                    position: "absolute", inset: 0,
-                    background: "radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.04) 0%, transparent 60%)"
-                }} />
-            </div>
 
-            <div className="relative z-10 max-w-2xl mx-auto px-6 py-20">
+<div className="relative z-10 max-w-2xl mx-auto px-6 py-20">
                 <div className="flex justify-between items-center mb-10">
                     <button
                         onClick={() => navigate("/")}

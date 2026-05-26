@@ -30,22 +30,8 @@ export default function UsersPage() {
 
     return (
         <div className="min-h-screen bg-[#0a0a0a] text-white relative overflow-hidden">
-            <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-                <div style={{
-                    position: "absolute", top: "-20%", left: "-10%",
-                    width: "500px", height: "500px", borderRadius: "50%",
-                    background: "radial-gradient(circle, rgba(120,60,255,0.25) 0%, transparent 70%)",
-                    filter: "blur(60px)"
-                }} />
-                <div style={{
-                    position: "absolute", bottom: "-20%", right: "-10%",
-                    width: "500px", height: "500px", borderRadius: "50%",
-                    background: "radial-gradient(circle, rgba(30,100,255,0.2) 0%, transparent 70%)",
-                    filter: "blur(60px)"
-                }} />
-            </div>
 
-            <div className="relative z-10 max-w-2xl mx-auto px-6 py-20">
+<div className="relative z-10 max-w-2xl mx-auto px-6 py-20">
                 <button
                     onClick={() => navigate("/")}
                     className="text-white/30 text-sm hover:text-white/60 transition mb-10 block"
